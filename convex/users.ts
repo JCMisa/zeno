@@ -1,0 +1,26 @@
+import { v } from "convex/values";
+import { mutation } from "./_generated/server";
+
+export const syncUser = mutation({
+  args: {
+    userId: v.string(),
+    email: v.string(),
+    name: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const existingUser = await ctx.db
+      .query("users") // select all from users table
+      .filter((q) => q.eq(q.field("userId"), args.userId)) // where userId field is equal to args.userId
+      .first(); // get the first occurence
+
+    // if user does not yet exist in db
+    if (!existingUser) {
+      await ctx.db.insert("users", {
+        userId: args.userId,
+        email: args.email,
+        name: args.name,
+        isPro: false,
+      });
+    }
+  },
+});
