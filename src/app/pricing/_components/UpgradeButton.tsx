@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function UpgradeButton() {
   const CHEKOUT_URL =
-    "https://ytprogrammingstore.lemonsqueezy.com/buy/d459dddb-a233-4060-9e72-90a1a7740552";
+    "https://jcm.lemonsqueezy.com/buy/0fb8d0d8-0ec3-4f48-80b6-78982a4f0e90";
 
   return (
     <Link
