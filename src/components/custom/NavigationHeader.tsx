@@ -1,6 +1,7 @@
 import HeaderProfileBtn from "@/app/(root)/_components/HeaderProfileBtn";
 import { SignedOut } from "@clerk/nextjs";
-import { Blocks, Code2, Sparkles } from "lucide-react";
+import { Code2, Sparkles } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 function NavigationHeader() {
@@ -19,19 +20,34 @@ function NavigationHeader() {
               />
 
               {/* Logo */}
-              <div className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0a0a0f] p-2 rounded-xl ring-1 ring-white/10 group-hover:ring-white/20 transition-all">
-                <Blocks className="w-6 h-6 text-blue-400 transform -rotate-6 group-hover:rotate-0 transition-transform duration-500" />
+              <div
+                className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0a0a0f] p-2 rounded-xl ring-1
+                            ring-white/10 group-hover:ring-white/20 transition-all"
+              >
+                <Image
+                  src={"/logo.svg"}
+                  alt="logo"
+                  width={1000}
+                  height={1000}
+                  className="size-6 text-blue-400 transform -rotate-6 group-hover:rotate-0 transition-transform duration-500"
+                />
               </div>
 
-              <div className="relative">
-                <span
-                  className="block text-lg font-semibold bg-gradient-to-r
-                 from-blue-400 via-blue-300 to-purple-400 text-transparent bg-clip-text"
-                >
-                  CodeCraft
-                </span>
+              <div className="flex flex-col">
+                <div className="block text-lg font-semibold bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 text-transparent bg-clip-text">
+                  <div className="flex items-center">
+                    <span>Zen</span>
+                    <Image
+                      src={"/logo.svg"}
+                      alt="logo"
+                      width={1000}
+                      height={1000}
+                      className="size-3"
+                    />
+                  </div>
+                </div>
                 <span className="block text-xs text-blue-400/60 font-medium">
-                  Interactive Code Editor
+                  Your Code, Perfectly Aligned
                 </span>
               </div>
             </Link>
